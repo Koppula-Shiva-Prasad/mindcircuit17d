@@ -5,7 +5,7 @@ COPY . .
 RUN mvn clean install  
 
 
-FROM tomcat
+FROM tomcat:9.0
 WORKDIR webapps
 COPY --from=buildstage /opt/mindcircuit17d/target/*.war .
 RUN rm -rf ROOT && mv *.war  ROOT.war
